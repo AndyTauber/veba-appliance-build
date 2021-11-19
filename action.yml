@@ -9,7 +9,7 @@ runs:
     - shell: bash
       run: |
         # move to github workspace
-        cd ${GITHUB_WORKSPACE}
+        cd "${GITHUB_WORKSPACE}"
         # copy authentication variables
         cp ~/auth/photon-builder.json photon-builder.json
 
