@@ -21,4 +21,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run the VEBA Appliance build script
-        uses: AndyTauber/veba-appliance-build@v1
+        uses: AndyTauber/veba-appliance-build
