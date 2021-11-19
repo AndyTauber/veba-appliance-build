@@ -1,0 +1,28 @@
+name: "Build VEBA Appliance"
+description: "Github Action to build the VEBA Appliance from a self-hosted runner using `BASH`."
+branding:
+  icon: box
+  color: blue
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+        # move to github workspace
+        cd ${GITHUB_WORKSPACE}
+        # copy authentication variables
+        cp ~/auth/photon-builder.json photon-builder.json
+
+        # add private key variable
+        sed -i '/ssh_username/i \ \ \ \ \ \ "remote_private_key_file": "{{ user `builder_private_key_file` }}",' photon.json
+
+        # make file runnable
+        chmod +x build.sh
+
+        # unmark
+        git update-index --assume-unchanged build.sh
+        git update-index --assume-unchanged photon.json
+        git update-index --assume-unchanged photon-builder.json`
+
+        # run script
+        ./build.sh
