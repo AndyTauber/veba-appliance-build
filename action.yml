@@ -22,7 +22,7 @@ runs:
         # unmark
         git update-index --assume-unchanged build.sh
         git update-index --assume-unchanged photon.json
-        git update-index --assume-unchanged photon-builder.json`
+        git update-index --assume-unchanged photon-builder.json
 
         # run script
         ./build.sh
